@@ -127,15 +127,16 @@ describe 'ActiveRecord Obstacle Course' do
     expect(items).to eq(expected_objects)
   end
 
-  it '6. finds multiple orders by id' do
+  xit '6. finds multiple orders by id' do
     ids_to_find = [@order_1.id, @order_3.id, @order_5.id, @order_7.id]
 
     # ----------------------- Using Ruby -------------------------
-    orders = Order.all.select { |order| ids_to_find.include?(order.id) }
+    # orders = Order.all.select { |order| ids_to_find.include?(order.id) }
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
+    orders = Order.where()
     # ------------------------------------------------------------
 
     # Expectation
@@ -160,11 +161,12 @@ describe 'ActiveRecord Obstacle Course' do
     expected_result = [@order_3, @order_2, @order_1, @order_4]
 
     # ----------------------- Using Ruby -------------------------
-    orders_less_than_550 = Order.all.select { |order| order.amount < 550 }
+    # orders_less_than_550 = Order.all.select { |order| order.amount < 550 }
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
+    orders_less_than_550 = Order.where('amount < ?', 550)
     # ------------------------------------------------------------
 
     # Expectation
