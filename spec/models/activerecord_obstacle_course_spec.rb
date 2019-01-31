@@ -195,11 +195,12 @@ describe 'ActiveRecord Obstacle Course' do
     expected_result = [@order_3, @order_6, @order_15, @order_9, @order_12]
 
     # ----------------------- Using Ruby -------------------------
-    orders_of_user_3 = Order.all.select { |order| order.user_id == @user_3.id }
+    # orders_of_user_3 = Order.all.select { |order| order.user_id == @user_3.id }
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
+    orders_of_user_3 = Order.where(user: @user_3.id)
     # ------------------------------------------------------------
 
     # Expectation
