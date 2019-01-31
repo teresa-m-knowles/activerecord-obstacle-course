@@ -80,7 +80,7 @@ describe 'ActiveRecord Obstacle Course' do
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
-    order_id = Order.order('amount desc').limit(1).first.id
+    order_id = Order.select(:id).order(amount: :desc).limit(1).first.id
     # Your solution should not contain the ID of the order anywhere
     # ------------------------------------------------------------
 
